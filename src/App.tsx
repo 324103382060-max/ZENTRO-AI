@@ -4,7 +4,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI, generateContent } from "@google/genai";
 import Markdown from 'react-markdown';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Bot, User, Loader2, Trash2, Sparkles, Image as ImageIcon, X, ExternalLink, Globe } from 'lucide-react';
@@ -89,7 +89,7 @@ export default function App() {
       }));
 
       const chat = ai.chats.create({
-        model: "gemini-1.5-flash",
+        model: "gemini-2.0-flash",
         history: history,
         config: {
           systemInstruction: "Your name is Zentro. You are a world-class AI assistant powered by Gemini 3.1 Pro. You are highly intelligent, accurate, and professional. You have access to Google Search to provide real-time, verified information. Always prioritize depth, accuracy, and helpfulness. You can assist with complex reasoning, coding, creative writing, and data analysis. You are multimodal and can analyze images with extreme precision.",
