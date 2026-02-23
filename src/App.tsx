@@ -78,11 +78,7 @@ export default function App() {
     setIsLoading(true);
 
     try {
-      const apiKey = process.env.GEMINI_API_KEY;
-      if (!apiKey) {
-        throw new Error("Gemini API Key is missing. Please configure it in the Secrets panel.");
-      }
-      const ai = new GoogleGenAI({ apiKey });
+       const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
       
       const history = messages.map(msg => ({
         role: msg.role === 'bot' ? 'model' : 'user',
